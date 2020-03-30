@@ -1,0 +1,180 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Import materialize.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Import Google Font-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Import custom stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="scripts/loadedIndex.js"></script>
+    <title>Grocery Shopping</title>
+</head>
+<body class="grey lighten-3"> 
+    <!--NAVBAR -->
+
+    <nav>
+        <div class = "nav-wrapper container">
+            <a href="index.html" class="brand-logo">Grocery Shopping</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li class="logged-out" style="display: none;"><a href="#" class="modal-trigger" data-target="modal-login">Sign in</a></li>
+                <li class="logged-out" style="display: none;"><a href="#" class="modal-trigger" data-target="modal-signup">Sign up</a></li>
+                <li class="logged-in cart" style="display: none;"><a href="#" class= "modal-trigger" data-target="modal-cart" id="cart"><ion-icon name="basket"></ion-icon>(<span>0</span>)</a></li>
+                <li class="logged-in" style="display: none;"><a href="#" id="logout">Logout</a></li>
+   </div>
+    </nav>
+    <!-- SIGN UP MODAL -->
+    <div id="modal-signup" class="modal">
+        <div class="modal-content">
+            <h4>Sign up</h4></br>
+            <form id="signup-form" class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="signup-email" type="email" class="validate" required>
+                        <label for="signup-email">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="signup-password" type="password" class="validate" required>
+                        <label for="signup-password">Password</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        <label>
+                            <input type="checkbox" id="vegeratian">
+                            <span class="checkmark"></span>
+                            I am a vegetarian
+                        </label>
+                    </div>
+                </div></br>
+                <div class="row">
+                    <div class="col s6">
+                        <button class="btn yellow darken-2 z-depth-0" id="clear-cart">Sign up</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- LOGIN MODAL -->
+    <div id="modal-login" class="modal">
+        <div class="modal-content">
+            <h4>Sign in</h4>
+            <form id="login-form" class="col s6">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="login-email" type="email" class="validate" required>
+                        <label for="login-email" data-error="Invalid password or email">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="login-password" type="password" class="validate" required>
+                        <label for="login-password" data-error="Invalid password or email">Password</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        <button class="btn yellow darken-2 z-depth-0">Login</button>
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- CART MODAL -->
+    <div id="modal-cart" class="modal">
+        <div class="modal-content">
+            <form id="cart-form">
+                <div class="products-container">
+                    <h3>Your Cart</h2>
+                    <div class="product-header">
+                       <h6 class="product-title">PRODUCT</h6>
+                       <h6 class="quantity">QUANTITY</h6>
+                    </div>
+                    <div class="products">
+                        <!-- populate with JS  -->
+                    </div>
+                    <div class="wrapper">
+                        <button class="btn yellow darken-2 z-depth-0">Clear Cart</button>
+                    </div>
+                    
+                    
+                </div>
+            </form>
+            <!-- <div class="modal-header border-bottom-0">
+                <h5 class="modal-title">
+                    Your Shopping Cart
+                </h5>
+                
+            </div>
+            <div class="modal-body">
+                <table class="table table-image">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Qty</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div> -->
+            
+            
+
+        </div>
+    </div>
+
+    <!-- FOOD LIST -->
+    <div class="container" style="margin-top:100px;">
+        <section class ="food-section">
+            <!-- populate with JS  -->
+        </section>
+    </div>
+    <!-- END OF FOOD LIST  -->
+        
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-analytics.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyCdyyZi6Xp8YAsD2iJm5_WgqYMuX1_MTTU",
+        authDomain: "food-inventory-272423.firebaseapp.com",
+        databaseURL: "https://food-inventory-272423.firebaseio.com",
+        projectId: "food-inventory-272423",
+        appId: "1:644621135485:web:aadd52b0adf426b74f0b14",
+        measurementId: "G-MH91Z0SSMY"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    // make auth and firestore references
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    </script>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/index.js"></script>
+   
+    
+</body>
+</html>
