@@ -24,3 +24,4 @@ Database: Firestore
 - Firebase is only good for small projects with small databases
 - User signup and authentication is quite easy, but not very secured
 - Scripts execute before the page is fully loaded, so there needs a function that prevents some cripts from running too fast (to perform a click event after all resources have loaded, for example)
+- Lots of material designs
