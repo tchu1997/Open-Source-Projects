@@ -1,4 +1,4 @@
-# Open-Source-Projects
+# Open-Source-Project
 ## Food Inventory | 27 March 2020 -  Present
 
 A sample website for ordering food online.
